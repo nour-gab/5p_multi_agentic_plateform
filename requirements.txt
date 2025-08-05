@@ -23,3 +23,6 @@ sentence-transformers
 transformers
 sentencepiece
 langchain_groq
+keybert 
+langdetect 
+nltk
