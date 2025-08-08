@@ -13,6 +13,19 @@ class DeepCrawlerAgent:
     """
     Agent for extracting and summarizing market data using Tavily, MCP, and Gemini.
     """
+        
+    # def __init__(self, prompt: str, top_k: int = 20):
+    #     """
+    #     Initializes the DeepCrawlerAgent with a meta-prompt and config.
+    #     """
+    #     self.prompt = prompt
+    #     self.top_k = top_k
+    #     self.context = self._parse_prompt(prompt)
+    #     self.search_queries = self.context.get("search_queries", [])
+    #     # self.api_results: List[Dict[str, Any]] = []
+    #     # self.entities: List[Dict[str, Any]] = []
+    #     self.logger = setup_logger("DeepCrawlerAgent")
+
     def __init__(self, porter_force: str, keywords: str):
         """
         Initialize the agent with a Porter force and search keywords.
@@ -20,6 +33,7 @@ class DeepCrawlerAgent:
         self.porter_force = porter_force
         self.keywords = keywords
         self.logger = setup_logger("DeepCrawlerAgent")
+    
 
     def _generate_better_keywords(self, idea: str, porter_force: str) -> str:
         """

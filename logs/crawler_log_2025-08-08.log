@@ -1,0 +1,11 @@
+2025-08-08 05:01:48,062 [INFO] Parsing prompt...
+2025-08-08 05:01:48,068 [INFO] Starting crawl for force: Rivalry
+2025-08-08 05:01:48,571 [INFO] Searching: Open-source MLOps platforms for SMBs comparison
+2025-08-08 05:01:48,572 [ERROR]  | Exception: Crawl error: query_sources() got an unexpected keyword argument 'max_results'
+Traceback (most recent call last):
+  File "c:\Users\MSI\Documents\AI\TalanSummerCamp\5p_multi_agentic_plateform\src\crawler.py", line 101, in crawl
+    results = query_sources(query, max_results=self.top_k)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: query_sources() got an unexpected keyword argument 'max_results'
+2025-08-08 05:01:48,577 [INFO] Extracting entities...
+2025-08-08 05:01:48,586 [INFO] Extraction complete: 46 entities.
