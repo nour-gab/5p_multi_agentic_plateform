@@ -14,15 +14,6 @@ def query_sources(porter_force: str, keywords: str):
     """
     sources = []
 
-    # Mapping Porter Force to MCP API targets
-    porter_force_apis = {
-        "Buyer Power": ["LinkedIn", "Glassdoor", "BuiltWith", "Clearbit", "Snov.io", "People Data Labs"],
-        "Supplier Power": ["Alibaba", "OpenCorporates", "ImportYeti", "ProcurementIQ", "Supplier.io", "ThomasNet"],
-        "New Entrants": ["Crunchbase", "Pitchbook", "AngelList", "CBInsights", "ProductHunt", "Y Combinator"],
-        "Substitute Products": ["G2", "Capterra", "App Store", "Play Store", "GitHub Trends", "HuggingFace Spaces", "IndieHackers"],
-        "Industry Rivalry": ["SEMrush", "SimilarWeb", "Ahrefs", "Craft.co", "SpyFu", "BuiltWith"]
-    }
-
     # Tavily search (broad web search)
     try:
         from tavily import TavilyClient

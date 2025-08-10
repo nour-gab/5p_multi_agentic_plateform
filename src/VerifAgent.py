@@ -109,7 +109,7 @@ RESPONSE FORMAT (Valid JSON):
   "feedback": "brief feedback"
 }}
 
-IMPORTANT: Only return valid JSON. No explanation text.
+IMPORTANT: Output ONLY the valid JSON object. No additional text, explanations, or markdown.
 """
 
     def analyze(self, idea_text: str) -> Dict:
@@ -121,7 +121,12 @@ IMPORTANT: Only return valid JSON. No explanation text.
         prompt = self.create_prompt(idea_text, keywords)
 
         try:
-            response = self.model.generate_content(prompt)
+            response = self.model.generate_content(
+                prompt,
+                generation_config=genai.GenerationConfig(
+                    response_mime_type="application/json"
+                )
+            )
             analysis = json.loads(response.text.strip())
         except Exception as e:
             print(f"Analysis error: {e}")
