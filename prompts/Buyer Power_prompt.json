@@ -1,0 +1,20 @@
+{
+  "porter_force": "Buyer Power",
+  "keywords": [
+    "FinTech customer retention strategies 2023-2024",
+    "FinTech customer switching costs analysis",
+    "FinTech consumer price sensitivity trends",
+    "Digital banking user preferences",
+    "Neobank customer churn rates 2023-2024",
+    "Payment app user engagement metrics",
+    "Personal finance app stickiness factors",
+    "FinTech customer acquisition cost trends"
+  ],
+  "strategy": "The DeepCrawlerAgent will execute a targeted crawl to assess buyer power within the FinTech industry. Utilizing the specified keywords, the agent will primarily leverage search APIs (e.g., Tavily, Gemini) to discover recent articles, market reports, and industry analyses (focusing on the last 6-12 months) that shed light on FinTech consumer behavior. The strategy emphasizes identifying factors such as customer retention rates, perceived switching costs, and the overall price sensitivity of FinTech users. The agent will prioritize sources detailing user satisfaction, product feature demands, and competitive pricing strategies adopted by FinTech companies, aiming to quantify the influence customers exert over market dynamics and product offerings.",
+  "recommended_apis": [
+    "CB Insights",
+    "Statista",
+    "App Annie (or Sensor Tower)",
+    "Gartner (for market reports)"
+  ]
+}

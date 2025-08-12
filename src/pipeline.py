@@ -39,7 +39,7 @@ class PipelineState(TypedDict):
 # Node: Verify and Enhance Idea
 async def verif_node(state: PipelineState) -> PipelineState:
     analyzer = FintechIdeaAnalyzer(api_key=os.getenv("GOOGLE_API_KEY"))
-    result = analyzer.analyze(state["initial_idea"])
+    result = await asyncio.to_thread(analyzer.analyze, state["initial_idea"])
     if result["status"] != "success":
         raise ValueError(f"Idea verification failed: {result['message']}")
     with open(result["report_path"], "r", encoding="utf-8") as f:
@@ -51,7 +51,7 @@ async def verif_node(state: PipelineState) -> PipelineState:
 async def process_force(force: str, enhanced_idea: str) -> Dict[str, Any]:
     # MetaPrompter
     meta_agent = MetaPromptAgent()
-    meta_agent.generate_prompt(force)
+    await asyncio.to_thread(meta_agent.generate_prompt, force)
     
     # Crawler
     crawler = DeepCrawlerAgent(porter_force=force)
@@ -59,7 +59,7 @@ async def process_force(force: str, enhanced_idea: str) -> Dict[str, Any]:
     
     # Cleaner
     cleaner = CleanerAgent()
-    await asyncio.to_thread(cleaner.run, porter_force=force)
+    await cleaner.run(porter_force=force)
     
     # ForceRAG
     document_path = f"data/cleaned/{force}_cleaned.json"
@@ -67,7 +67,28 @@ async def process_force(force: str, enhanced_idea: str) -> Dict[str, Any]:
     index_path = "./index"
     await asyncio.to_thread(configure_document, document_path, index_name, index_path)
     query = f"Analyze this competitive intelligence data using Porter's {force} Force"
-    response = await asyncio.to_thread(get_response, index_name, index_path, query, force)
+    for attempt in range(3):  # Retry for rate limits
+        try:
+            response = await asyncio.to_thread(get_response, index_name, index_path, query, force)
+            if not response.get("status", False):
+                print(f"ForceRAG failed for {force}: {response.get('message', 'Unknown error')}")
+                return {"force": force, "report_path": "", "report": f"Error: {response.get('message', 'ForceRAG failed')}"}
+            if "answer" not in response:
+                print(f"ForceRAG response missing 'answer' key for {force}: {response}")
+                return {"force": force, "report_path": "", "report": "Error: No answer in ForceRAG response"}
+            break
+        except Exception as e:
+            if "Rate limit reached" in str(e):
+                wait_time = 10 * (2 ** attempt)
+                print(f"Rate limit hit in ForceRAG for {force}, retrying in {wait_time}s: {e}")
+                await asyncio.sleep(wait_time)
+            else:
+                print(f"ForceRAG error for {force}: {e}")
+                return {"force": force, "report_path": "", "report": f"Error: {str(e)}"}
+    else:
+        print(f"ForceRAG failed after retries for {force} due to rate limits")
+        return {"force": force, "report_path": "", "report": "Error: ForceRAG failed after retries"}
+    
     report_path = f"data/report/{force}_report.json"
     await asyncio.to_thread(save_report, {"analysis": response["answer"]}, report_path)
     
@@ -76,7 +97,12 @@ async def process_force(force: str, enhanced_idea: str) -> Dict[str, Any]:
 # Node: Parallel Process Forces
 async def parallel_forces_node(state: PipelineState) -> PipelineState:
     tasks = [process_force(force, state["enhanced_idea"]) for force in PORTER_FORCES]
-    state["per_force_reports"] = await asyncio.gather(*tasks)
+    state["per_force_reports"] = await asyncio.gather(*tasks, return_exceptions=True)
+    # Filter out any exceptions or invalid reports
+    state["per_force_reports"] = [
+        report for report in state["per_force_reports"]
+        if isinstance(report, dict) and report.get("report_path")
+    ]
     return state
 
 # Node: Merge Reports with 5pAgent
@@ -102,7 +128,20 @@ async def five_p_agent_node(state: PipelineState) -> PipelineState:
 async def judge_node(state: PipelineState) -> PipelineState:
     rags = {report["force"]: report["report"] for report in state["per_force_reports"]}
     judge = LLMJudge(api_key=os.getenv("GROQ_API_KEY"))
-    verdict = await asyncio.to_thread(judge.run, state["merged_report"], rags)
+    for attempt in range(3):  # Retry for rate limits
+        try:
+            verdict = await asyncio.to_thread(judge.run, state["merged_report"], rags)
+            break
+        except Exception as e:
+            if "Rate limit reached" in str(e):
+                wait_time = 10 * (2 ** attempt)
+                print(f"Rate limit hit in JudgeLLM, retrying in {wait_time}s: {e}")
+                await asyncio.sleep(wait_time)
+            else:
+                raise
+    else:
+        raise ValueError("JudgeLLM failed after retries due to rate limits")
+    
     state["verdict"] = verdict
     os.makedirs("outputs", exist_ok=True)
     with open("outputs/verdict.json", "w", encoding="utf-8") as f:
@@ -112,7 +151,20 @@ async def judge_node(state: PipelineState) -> PipelineState:
 # Node: Generate Dashboard Analysis
 async def dashboard_node(state: PipelineState) -> PipelineState:
     agent = DashboardAgent(api_key=os.getenv("GROQ_API_KEY"))
-    analysis = await asyncio.to_thread(agent.run, "outputs/verdict.json")
+    for attempt in range(3):  # Retry for rate limits
+        try:
+            analysis = await asyncio.to_thread(agent.run, "outputs/verdict.json")
+            break
+        except Exception as e:
+            if "Rate limit reached" in str(e):
+                wait_time = 10 * (2 ** attempt)
+                print(f"Rate limit hit in DashboardAgent, retrying in {wait_time}s: {e}")
+                await asyncio.sleep(wait_time)
+            else:
+                raise
+    else:
+        raise ValueError("DashboardAgent failed after retries due to rate limits")
+    
     state["dashboard_analysis"] = analysis
     os.makedirs("outputs", exist_ok=True)
     with open("outputs/dashboard_analysis.json", "w", encoding="utf-8") as f:

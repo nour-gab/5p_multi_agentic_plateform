@@ -1,0 +1,20 @@
+{
+  "porter_force": "Rivalry",
+  "keywords": [
+    "FinTech competitive landscape 2023-2024",
+    "FinTech market share trends recent",
+    "Major FinTech acquisitions mergers 2023-2024",
+    "FinTech pricing strategies analysis",
+    "Digital payments competition trends",
+    "Neobank vs challenger bank rivalry",
+    "Embedded finance competitive analysis",
+    "FinTech consolidation trends recent"
+  ],
+  "strategy": "The DeepCrawlerAgent will initiate searches using tailored keywords to map the current competitive landscape of the FinTech sector over the past 6-12 months. It will prioritize identifying dominant players, emerging challengers, and recent strategic moves such as mergers, acquisitions, and key partnerships. The agent will analyze pricing strategies, market share shifts, and product differentiation efforts among competitors. Specific attention will be given to competitive intensity within key FinTech verticals like digital payments, neobanking, and embedded finance. The agent will synthesize information from news articles, industry reports, company press releases, and financial filings to assess the degree of rivalry, pinpointing potential pricing wars, aggressive marketing campaigns, and consolidation trends. This data will enable the agent to provide a comprehensive understanding of the competitive dynamics influencing profitability and strategic decision-making in FinTech.",
+  "recommended_apis": [
+    "Crunchbase",
+    "CB Insights",
+    "PitchBook",
+    "SEC EDGAR"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "porter_force": "Substitute Products",
+  "keywords": [
+    "Open Banking alternatives adoption",
+    "Decentralized Finance (DeFi) threat traditional finance",
+    "Embedded finance non-bank solutions",
+    "Cryptocurrency payment mainstream adoption",
+    "Neobank customer migration rates",
+    "AI-powered financial advisory disruption",
+    "Big Tech financial services market share",
+    "Peer-to-peer lending growth rates",
+    "Traditional banking digital transformation response"
+  ],
+  "strategy": "The DeepCrawlerAgent will execute a targeted crawling strategy focused on identifying emerging substitute products and services within the FinTech sector. It will leverage the specified keywords to pinpoint discussions, reports, and analyses concerning alternative financial platforms, disruptive technologies, and shifts in consumer behavior over the last 6-12 months. The agent will prioritize sources detailing adoption rates, market penetration of new alternatives, and the strategic responses of incumbent financial institutions to these evolving threats. Emphasis will be placed on identifying technologies like AI, blockchain, and open banking initiatives that enable novel substitute offerings, analyzing their potential to displace existing financial products and services.",
+  "recommended_apis": [
+    "Crunchbase",
+    "CB Insights",
+    "SEC EDGAR",
+    "PitchBook"
+  ]
+}

@@ -1,10 +1,12 @@
 import json
 import re
-from typing import Dict
+from typing import Dict, Type
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
+from langchain.output_parsers import OutputFixingParser
 from dotenv import load_dotenv
+from pydantic import BaseModel, Field
 load_dotenv()
 
 # Prompts are imported from utils
@@ -14,12 +16,26 @@ from utils.judge_prompts import (
     hallucination_check_prompt,
     final_judge_prompt  # Optional: if needed later
 )
+class PorterForces(BaseModel):
+    Threat_of_New_Entrants: str = Field(description='"Present" or "Missing"')
+    Bargaining_Power_of_Suppliers: str
+    Bargaining_Power_of_Buyers: str
+    Threat_of_Substitutes: str
+    Industry_Rivalry: str
+
+class CoherenceEval(BaseModel):
+    flow_score: int = Field(ge=1, le=10)
+    issues: list[str]
+
+class HallucinationEval(BaseModel):
+    hallucinations: list[Dict[str, str]]
+
 
 class LLMJudge:
     def __init__(
         self,
         api_key: str,
-        model: str = "qwen/qwen3-32b",
+        model: str = "openai/gpt-oss-120b",
     ):
         if not api_key:
             raise ValueError("Groq API key is required.")
@@ -30,12 +46,26 @@ class LLMJudge:
             max_tokens=1024,
             api_key=api_key
         )
-        self.parser = JsonOutputParser()
+        #<json_parser = JsonOutputParser(pydantic_object=PorterForces)
+        #self.parser = OutputFixingParser.from_llm(parser=json_parser, llm=self.llm)
 
-    def _ask_model(self, prompt: str) -> Dict:
-        chain = PromptTemplate.from_template(prompt) | self.llm | self.parser
+    def _make_parser(self, schema: Type[BaseModel]):
+        """Create a parser and output fixer for a given Pydantic schema."""
+        json_parser = JsonOutputParser(pydantic_object=schema)
+        return OutputFixingParser.from_llm(parser=json_parser, llm=self.llm)
+    
+    def _ask_model(self, prompt: str, schema: Type[BaseModel], report_text: str) -> Dict:
+        
+        parser = self._make_parser(schema)
+        template = prompt + "\n{format_instructions}"
+        prompt = PromptTemplate(
+            input_variables=["report"],
+            partial_variables={"format_instructions": parser.get_format_instructions()},
+            template=template
+        )
+        chain = prompt | self.llm | parser
         try:
-            result = chain.invoke({})
+            result = chain.invoke({"report": report_text})
             return result
         except Exception as e:
             print(f"❌ Groq error: {e}")
@@ -43,16 +73,25 @@ class LLMJudge:
 
     def evaluate(self, merged_report: str, rags: Dict) -> Dict:
         # Structure Check
-        structure_prompt = structure_check_prompt(merged_report)
-        structure_out = self._ask_model(structure_prompt)
+        structure_out = self._ask_model(
+            structure_check_prompt(merged_report),
+            PorterForces,
+            merged_report
+        )
 
         # Coherence Check
-        coherence_prompt = coherence_check_prompt(merged_report)
-        coherence_out = self._ask_model(coherence_prompt)
+        coherence_out = self._ask_model(
+            coherence_check_prompt(merged_report),
+            CoherenceEval,
+            merged_report
+        )
 
         # Hallucination Check
-        hallucination_prompt = hallucination_check_prompt(merged_report, rags)
-        hallucination_out = self._ask_model(hallucination_prompt)
+        hallucination_out = self._ask_model(
+            hallucination_check_prompt(merged_report, rags),
+            HallucinationEval,
+            merged_report
+        )
 
         # Final verdict
         missing_sections = [k for k, v in structure_out.items() if v == "Missing"]

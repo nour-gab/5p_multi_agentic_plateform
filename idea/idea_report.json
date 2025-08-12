@@ -1,8 +1,8 @@
 {
-  "idea": "blockchain market analysis using agentic ai",
+  "idea": "market analysis using agentic ai",
   "analysis": {
     "is_fintech": true,
-    "fintech_score": 8,
+    "fintech_score": 9,
     "completeness_score": 6,
     "feasibility_score": 7,
     "overall_score": 7,
@@ -13,11 +13,11 @@
       "Target audience details"
     ],
     "strengths": [
-      "Uses cutting-edge technology",
-      "Relevant to blockchain and crypto markets"
+      "Utilizes AI for market analysis",
+      "Potential for automation"
     ],
     "recommendation": "DISCUSS",
-    "feedback": "The idea is promising, combining blockchain analysis with AI.  However, it needs further definition regarding the specific problem it solves, its value proposition, and target audience for a clearer assessment."
+    "feedback": "The idea has potential but needs further definition.  Clarifying the target audience, problem, and value proposition is crucial. The feasibility depends on the specific AI model and available data."
   },
-  "timestamp": "2025-08-11 10:23:42"
+  "timestamp": "2025-08-12 12:25:02"
 }

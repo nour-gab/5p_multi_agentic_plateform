@@ -1,10 +1,11 @@
 def structure_check_prompt(report):
-    return f"""
-You are an evaluator. Reply ONLY with a JSON object.
+    return """
+You are an evaluator. You must reply ONLY with a valid JSON object — no explanations, no extra text, no tags, no reasoning.
 
 Does the report contain all 5 of Porter's Five Forces?
 The answer should be either "Present" or "Missing" for each force.
-Return strictly this JSON:
+
+Return strictly this JSON format (replace only the values with your answer):
 {{
   "Threat of New Entrants": "Present" or "Missing",
   "Bargaining Power of Suppliers": "Present" or "Missing",
@@ -13,12 +14,16 @@ Return strictly this JSON:
   "Industry Rivalry": "Present" or "Missing"
 }}
 
+/no_think
+
 Report:
 {report}
-"""
+""".replace("{", "{{").replace("}", "}}").replace("{{report}}", report)
+
+
 
 def coherence_check_prompt(report):
-    return f"""
+    return """
 You are a writing evaluator.
 
 Your task is to assess the **coherence and logical flow** of the following analytical report.
@@ -45,7 +50,9 @@ Return strictly JSON in the format below. Do not include any natural language co
 
 Report:
 {report}
-"""
+""".replace("{", "{{").replace("}", "}}").replace("{{report}}", report)
+
+
     return f"""
 Evaluate this report's coherence.
 Return strictly JSON:
@@ -60,7 +67,7 @@ Report:
 
 def hallucination_check_prompt(report, rags):
     rag_text = "\n\n".join([f"{k}:\n{v}" for k, v in rags.items()])
-    return f"""
+    return """
 You are an expert fact-checker.
 
 Your task is to validate whether each statement in the report is grounded in the provided source RAGs.
@@ -92,7 +99,9 @@ Return strictly JSON in the format below. Do not include any explanation or natu
     }}
   ]
 }}
-"""
+""".replace("{", "{{").replace("}", "}}").replace("{{report}}", report).replace("{{rag_text}}", rag_text)
+
+
     rag_text = "\n\n".join([f"{k}:\n{v}" for k, v in rags.items()])
     return f"""
 Fact-check this report based on the source RAGs.
@@ -117,7 +126,7 @@ Return strictly JSON:
 
 
 def final_judge_prompt(structure_json: str, coherence_json: str, hallucination_json: str) -> str:
-    return f"""
+    return """
 You are an expert judge. Given these evaluation results:
 
 Structure Evaluation:
@@ -144,4 +153,4 @@ Return ONLY a JSON with this schema:
     "hallucination": object
   }}
 }}
-"""
+""".replace("{", "{{").replace("}", "}}").replace("{{structure_json}}", structure_json).replace("{{coherence_json}}", coherence_json).replace("{{hallucination_json}}", hallucination_json)

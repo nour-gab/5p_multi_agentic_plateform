@@ -132,7 +132,7 @@ def get_rag_chain(retriever, llm, question, porter_force):
     
     PORTER_FORCE_TEMPLATES = {
     "Competitive Rivalry": """
-            Analyze competitive rivalry in the MLOps market for SMBs using:
+            Analyze competitive rivalry in FinTech using:
             {context}
             
             Extract and calculate:
@@ -154,7 +154,7 @@ def get_rag_chain(retriever, llm, question, porter_force):
             """,
     
     "Buyer Power": """
-            Analyze the buyer power dynamics in the MLOps market for SMBs using:
+            Analyze the buyer power dynamics in FinTech using:
             {context}
             
             Extract and calculate:
@@ -178,7 +178,7 @@ def get_rag_chain(retriever, llm, question, porter_force):
             """,
     
     "Supplier Power": """
-            Analyze supplier power in the MLOps market for SMBs using:
+            Analyze supplier power in FinTech using:
             {context}
             
             Extract and calculate:
@@ -202,7 +202,7 @@ def get_rag_chain(retriever, llm, question, porter_force):
             """,
     
     "Threat of New Entrants": """
-            Execute an exhaustive review of entry threats in the MLOps market for SMBs, emphasizing:
+            Execute an exhaustive review of entry threats in FinTech, emphasizing:
             {context}
             
             Produce a comprehensive report through extraction, computation, and analysis of:
@@ -227,7 +227,7 @@ def get_rag_chain(retriever, llm, question, porter_force):
             """,
     
     "Threat of Substitutes": """
-            Execute a detailed examination of substitution threats in the MLOps market for SMBs, focusing on:
+            Execute a detailed examination of substitution threats in FinTech, focusing on:
             {context}
             
             Generate an expanded report by extracting, calculating, and elaborating on:
@@ -322,7 +322,7 @@ def save_report(report: Dict, file_path: str):
 
 
 def run():
-    porter_force = "Rivalry"  # Example; can be parameterized
+    porter_force = "Buyer Power"  # Example; can be parameterized
     document_path = f"data/cleaned/{porter_force}_cleaned.json"
     
     # Load data to extract porter_force if needed, but since uniform, use the input

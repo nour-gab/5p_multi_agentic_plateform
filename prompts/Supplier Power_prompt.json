@@ -1,0 +1,20 @@
+{
+  "porter_force": "Supplier Power",
+  "keywords": [
+    "FinTech cloud provider market share 2023 2024",
+    "API gateway pricing FinTech industry",
+    "RegTech vendor concentration FinTech",
+    "KYC AML solution providers FinTech",
+    "financial data supplier dominance",
+    "cybersecurity provider FinTech partnerships",
+    "AI infrastructure FinTech investment 2024",
+    "payment processing API costs FinTech"
+  ],
+  "strategy": "The DeepCrawlerAgent will execute targeted searches using the provided keywords to assess the bargaining power of key suppliers within the FinTech sector. The strategy involves identifying dominant cloud infrastructure providers (e.g., AWS, Azure, GCP), specialized API and data vendors (e.g., payment gateways, identity verification, market data), and critical RegTech/cybersecurity solution providers. The agent will prioritize recent analyst reports, industry news, vendor partnership announcements, and M&A activities from the last 6-12 months to understand supplier concentration, pricing trends, and the switching costs for FinTech firms. The goal is to identify potential bottlenecks, dependency risks, and the overall influence of these suppliers on FinTech operational costs, innovation capacity, and time-to-market.",
+  "recommended_apis": [
+    "Crunchbase API",
+    "CB Insights",
+    "Tavily API",
+    "SEC EDGAR (for public tech suppliers)"
+  ]
+}
