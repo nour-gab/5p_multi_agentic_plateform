@@ -3,14 +3,14 @@ def structure_check_prompt(report):
 You are an evaluator. Reply ONLY with a JSON object.
 
 Does the report contain all 5 of Porter's Five Forces?
-the answer should be either present or missing
-Return strictly this JSON: 
+The answer should be either "Present" or "Missing" for each force.
+Return strictly this JSON:
 {{
   "Threat of New Entrants": "Present" or "Missing",
-  "Bargaining Power of Suppliers": "...",
-  "Bargaining Power of Buyers": "...",
-  "Threat of Substitutes": "...",
-  "Industry Rivalry": "..."
+  "Bargaining Power of Suppliers": "Present" or "Missing",
+  "Bargaining Power of Buyers": "Present" or "Missing",
+  "Threat of Substitutes": "Present" or "Missing",
+  "Industry Rivalry": "Present" or "Missing"
 }}
 
 Report:

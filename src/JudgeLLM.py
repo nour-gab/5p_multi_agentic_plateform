@@ -1,7 +1,11 @@
 import json
 import re
-import requests
 from typing import Dict
+from langchain_groq import ChatGroq
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
+from dotenv import load_dotenv
+load_dotenv()
 
 # Prompts are imported from utils
 from utils.judge_prompts import (
@@ -15,64 +19,40 @@ class LLMJudge:
     def __init__(
         self,
         api_key: str,
-        model: str = "open-mistral-7b",
-        api_url: str = "https://api.mistral.ai/v1/chat/completions"
+        model: str = "qwen/qwen3-32b",
     ):
-        self.api_key = api_key
-        self.model = model
-        self.api_url = api_url
+        if not api_key:
+            raise ValueError("Groq API key is required.")
 
-    def _ask_model(self, prompt: str) -> str:
-        response = requests.post(
-            self.api_url,
-            headers={
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json"
-            },
-            json={
-                "model": self.model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.2,
-                "max_tokens": 1024
-            }
+        self.llm = ChatGroq(
+            model=model,
+            temperature=0.2,
+            max_tokens=1024,
+            api_key=api_key
         )
+        self.parser = JsonOutputParser()
 
+    def _ask_model(self, prompt: str) -> Dict:
+        chain = PromptTemplate.from_template(prompt) | self.llm | self.parser
         try:
-            result = response.json()
-            return result['choices'][0]['message']['content']
+            result = chain.invoke({})
+            return result
         except Exception as e:
-            print("❌ Error with Mistral API response:")
-            print(json.dumps(response.json(), indent=2))
-            raise e
-
-    def _extract_json(self, raw_text: str, label: str) -> Dict:
-        print(f"🔍 {label} Raw Output:\n", raw_text)
-        match = re.search(r'\{[\s\S]*\}', raw_text)
-        if not match:
-            raise ValueError(f"❌ No JSON found in {label} output.")
-        
-        try:
-            return json.loads(match.group())
-        except json.JSONDecodeError:
-            print(f"❌ Invalid JSON in {label}:")
-            print(match.group())
+            print(f"❌ Groq error: {e}")
             raise
 
     def evaluate(self, merged_report: str, rags: Dict) -> Dict:
         # Structure Check
         structure_prompt = structure_check_prompt(merged_report)
-        structure_raw = self._ask_model(structure_prompt)
-        structure_out = self._extract_json(structure_raw, label="Structure")
+        structure_out = self._ask_model(structure_prompt)
 
         # Coherence Check
         coherence_prompt = coherence_check_prompt(merged_report)
-        coherence_raw = self._ask_model(coherence_prompt)
-        coherence_out = self._extract_json(coherence_raw, label="Coherence")
+        coherence_out = self._ask_model(coherence_prompt)
 
         # Hallucination Check
         hallucination_prompt = hallucination_check_prompt(merged_report, rags)
-        hallucination_raw = self._ask_model(hallucination_prompt)
-        hallucination_out = self._extract_json(hallucination_raw, label="Hallucination")
+        hallucination_out = self._ask_model(hallucination_prompt)
 
         # Final verdict
         missing_sections = [k for k, v in structure_out.items() if v == "Missing"]
@@ -98,6 +78,7 @@ class LLMJudge:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(result, f, indent=2)
         print(f"✅ Verdict saved to {path}")
+
     def run(self, merged_report: str, rags: Dict) -> Dict:
         """ Main entry point to evaluate the merged report against RAGs. """
         try:
@@ -109,3 +90,20 @@ class LLMJudge:
                 "message": str(e)
             }
 
+if __name__ == "__main__":
+    import os
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        raise ValueError("Please set the GROQ_API_KEY environment variable.")
+
+    judge = LLMJudge(api_key=api_key)
+    merged_report_path = "data/report/merged_report.txt"
+    with open(merged_report_path, "r", encoding="utf-8") as f:
+        merged_report = f.read()
+
+    rags_path = "data/report/report.json"
+    with open(rags_path, "r", encoding="utf-8") as f:
+        rags = json.load(f)
+    
+    result = judge.run(merged_report, rags)
+    print(json.dumps(result, indent=2, ensure_ascii=False))

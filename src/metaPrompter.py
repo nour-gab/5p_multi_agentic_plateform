@@ -1,6 +1,7 @@
 """
 MetaPromptAgent: Generates strategic, force-specific instructions for DeepCrawlerAgent in AI/Data domains.
-Uses Gemini 2.5 Flash via Google Generative AI API. Modular, scalable, and outputs prompt to ./prompts/prompt.txt.
+Uses Gemini 2.5 Flash via Google Generative AI API. Reads enhanced idea from VerifAgent's output.
+Outputs prompt to ./prompts/prompt.txt.
 """
 import os
 import json
@@ -18,12 +19,13 @@ genai.configure(api_key=api_key)
 
 class MetaPromptAgent:
     """
-    Generates a meta-prompt for the DeepCrawlerAgent based on an enhanced idea and Porter Force.
+    Generates a meta-prompt for the DeepCrawlerAgent based on VerifAgent's enhanced idea and Porter Force.
     Outputs the prompt to ./prompts/prompt.txt for downstream use.
     """
-    def __init__(self):
+    def __init__(self, verif_report_path: str = "idea/idea_report.json"):
         self.model = GenerativeModel("gemini-2.5-flash")
-        self.prompt_template = ( """
+        self.verif_report_path = verif_report_path
+        self.prompt_template = """
         You are the DeepCrawler Agent embedded within an agentic system that analyzes the Financial Technology (FinTech) industry using Porter's Five Forces framework.
         Your mission is to autonomously plan and execute a deep market and ecosystem crawl using tools like Tavily, Gemini, and MCP APIs.
 
@@ -37,25 +39,15 @@ class MetaPromptAgent:
         5. Return structured and ranked results, including link metadata, sentiment analysis, signal strength, and force-specific relevance.
 
         Inputs:
-        - **Porter Force**: {{porter_force}}
-        - **Project Idea / Business Context**: {{project_idea}}
+        - **Porter Force**: {porter_force}
+        - **Project Idea / Business Context**: {project_idea}
 
-        Output Format:
-        - **Force-Specific Keyword Strategy**: 10–20 high-precision keyword search queries related to {{porter_force}} and {{project_idea}} within FinTech.
-        - **Recommended APIs and Data Sources**: List of APIs/sources ranked by relevance for {{porter_force}}.
-        - **Crawling Infrastructure**: Tools used (Tavily, Gemini, MCP), along with query rationale.
-        - **Top 10 Relevant Entities**: e.g., FinTech startups, technologies, financial institutions, regulations, patents.
-        - **Entity Metadata**: For each entity, return: title, summary, relevance score, keywords, link, source type, crawl timestamp.
-        - **Strategic Observations**: FinTech insights directly mapped to {{porter_force}} (e.g., how regulatory changes are increasing barriers to entry).
-        - **Confidence Scores**: Numerical signal strength for each observation (0–1 scale).
-        - **Next-Step Recommendations**: Suggest refined queries, APIs, or source categories for recursive crawling.
-
-        Behavior by Force:
-        - *Buyer Power*: Identify enterprise vs. consumer FinTech adoption trends, pricing sensitivity in digital wallets or investment apps, and platform loyalty metrics.
-        - *Supplier Power*: Map out critical data providers, APIs, KYC/AML service vendors, card processors (e.g., Visa, Mastercard), and cloud fintech infrastructure dependencies.
-        - *New Entrants*: Detect new FinTech product launches, funding rounds, YC Demo Day participants, or challenger banks entering regulated markets.
-        - *Substitutes*: Explore decentralized finance (DeFi), crypto-based payment platforms, P2P lending alternatives, and open banking innovations disrupting legacy FinTech.
-        - *Rivalry*: Benchmark major players across payments, credit, wealth management, insuretech, and regtech. Include VC activity, acquisitions, user growth, and pricing wars.
+        Force-Specific Guidance:
+        - *Buyer Power*: Focus on customer segments, their bargaining leverage, switching costs, and demand for customized FinTech solutions.
+        - *Supplier Power*: Analyze key technology providers, cloud infrastructure dependencies, and regulatory compliance vendors.
+        - *New Entrants*: Identify barriers to entry, emerging startups, and venture capital trends shaping FinTech.
+        - *Substitutes*: Examine alternative technologies, non-FinTech competitors, and open banking innovations disrupting legacy FinTech.
+        - *Rivalry*: Benchmark major players across payments, credit, wealth management, insurtech, and regtech. Include VC activity, acquisitions, user growth, and pricing wars.
 
         Constraints:
         - Optimize for performance—complete response in under 60 seconds.
@@ -67,20 +59,34 @@ class MetaPromptAgent:
         Provide strategic analysts with actionable, force-specific insights that enable deep understanding of the FinTech ecosystem surrounding the provided business context.
 
         Begin execution using:
-        - {{porter_force}}
-        - {{project_idea}}
+        - {porter_force}
+        - {project_idea}
         """
-        )
         self.output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'prompts', 'prompt.txt'))
 
-    def generate_prompt(self, enhanced_idea: str, porter_force: str) -> str:
+    def load_enhanced_idea(self) -> str:
         """
-        Generates the meta-prompt and writes it to ./prompts/prompt.txt.
+        Loads the enhanced idea from VerifAgent's output (idea/idea_report.json).
+        Returns the enhanced idea or raises an error if not found.
+        """
+        if not os.path.exists(self.verif_report_path):
+            raise FileNotFoundError(f"VerifAgent report not found at {self.verif_report_path}")
+        with open(self.verif_report_path, "r", encoding="utf-8") as f:
+            report = json.load(f)
+        enhanced_idea = report.get("idea", "")
+        if not enhanced_idea:
+            raise ValueError("No enhanced idea found in VerifAgent report")
+        return enhanced_idea
+
+    def generate_prompt(self, porter_force: str) -> str:
+        """
+        Generates the meta-prompt using the enhanced idea from VerifAgent and writes it to ./prompts/prompt.txt.
         Returns the generated prompt string.
         """
+        enhanced_idea = self.load_enhanced_idea()
         prompt = self.prompt_template.format(
             porter_force=porter_force,
-            enhanced_idea=enhanced_idea
+            project_idea=enhanced_idea
         )
         response = self.model.generate_content(prompt)
         # Try to parse as JSON, fallback to string
@@ -90,18 +96,15 @@ class MetaPromptAgent:
         except Exception:
             pretty_instructions = response.text.strip()
         # Write to prompt.txt
+        os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
         with open(self.output_path, "w", encoding="utf-8") as f:
             f.write(pretty_instructions)
         return pretty_instructions
 
 if __name__ == "__main__":
-    idea = input("Enter your enhanced business idea: ").strip()
-    if not idea:
-        idea = "AI-powered optimization platform for car rental fleet usage and predictive maintenance"
-    porter_force = input("Enter Porter Force (e.g., Buyer Power): ").strip()
-    if not porter_force:
-        porter_force = "Buyer Power"
+    #input("Enter Porter Force (e.g., Buyer Power): ").strip() or
+    porter_force =  "Buyer Power"
     agent = MetaPromptAgent()
-    result = agent.generate_prompt(idea, porter_force)
+    result = agent.generate_prompt(porter_force)
     print("\nGenerated DeepCrawler Agent MetaPrompt (written to ./prompts/prompt.txt):\n")
     print(result)

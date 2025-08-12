@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "message": "'Input to PromptTemplate is missing variables {\\'\\\\n  \"Threat of New Entrants\"\\'}.  Expected: [\\'\\\\n  \"Threat of New Entrants\"\\'] Received: []\\nNote: if you intended {\\n  \"Threat of New Entrants\"} to be part of the string and not a variable, please escape it with double curly braces like: \\'{{\\n  \"Threat of New Entrants\"}}\\'.\\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT '"
+}

@@ -26,3 +26,4 @@ langchain_groq
 keybert 
 langdetect 
 nltk
+backoff

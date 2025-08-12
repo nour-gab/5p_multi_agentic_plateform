@@ -2,6 +2,10 @@ import os
 import json
 import google.generativeai as genai
 from typing import Optional
+from dotenv import load_dotenv
+
+load_dotenv()
+# api_key = os.getenv("GOOGLE_API_KEY")
 
 class FivePAgent:
     """
@@ -12,8 +16,8 @@ class FivePAgent:
     def __init__(
         self,
         api_key: str,
-        rag_path: str = "rags.json",
-        output_path: str = "idea/merged_report.txt",
+        rag_path: str = "data/report/report.json",
+        output_path: str = "data/report/merged_report.txt",
         model_name: str = "gemini-2.5-flash"
     ):
         if not api_key:
@@ -95,3 +99,18 @@ Return only the final report as plain text (no JSON or explanations).
                 "status": "error",
                 "message": str(e)
             }
+
+def main():
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        raise ValueError("Please set the GOOGLE_API_KEY environment variable.")
+
+    agent = FivePAgent(
+        api_key=api_key,
+        rag_path="data/report/report.json",
+        output_path="data/report/merged_report.txt"
+    )
+    result = agent.run()
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+if __name__ == "__main__":
+    main()
