@@ -27,3 +27,5 @@ keybert
 langdetect 
 nltk
 backoff
+fastapi
+#uv pip install -U langchain-community

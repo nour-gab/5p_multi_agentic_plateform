@@ -55,7 +55,14 @@ Guidelines:
 Source Notes (RAGs):
 {rag_text}
 
-Return only the final report as plain text (no JSON or explanations).
+Return a JSON object with:
+        {{
+          "source_name": str,
+          "porter_force": str,
+          "summary": str,
+          "key_metrics": [str],
+          "data_points": [str]
+        }}
 """
 
     def generate_report(self, prompt: str) -> Optional[str]:

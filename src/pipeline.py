@@ -184,7 +184,7 @@ workflow.set_entry_point("verif")
 workflow.add_edge("verif", "parallel_forces")
 workflow.add_edge("parallel_forces", "five_p_agent")
 workflow.add_edge("five_p_agent", "judge")
-workflow.add_edge("judge", "dashboard")
+workflow.add_edge("five_p_agent", "dashboard")
 workflow.add_edge("dashboard", END)
 
 graph: Pregel = workflow.compile()
