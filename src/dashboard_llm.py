@@ -73,8 +73,8 @@ def extract_json_block(text: str) -> str:
 # ---------------------
 # Main class
 # ---------------------
-class DashboardLLM:
-    def __init__(self, api_key: str, model: str = "qwen/qwen3-32b"):
+class DashboardAgent:
+    def __init__(self, api_key: str, model: str = "deepseek-r1-distill-llama-70b"):
         if not api_key:
             raise ValueError("Groq API key is required.")
         self.llm = ChatGroq(model=model, temperature=0.2, max_tokens=2048, api_key=api_key)
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     with open(report_path, "r", encoding="utf-8") as f:
         report_text = f.read()
 
-    llm = DashboardLLM(api_key=api_key)
+    llm = DashboardAgent(api_key=api_key)
     dashboard_data = llm.generate_dashboard(report_text)
 
     # Save to file

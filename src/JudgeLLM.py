@@ -10,7 +10,7 @@ from pydantic import BaseModel, Field
 load_dotenv()
 
 # Prompts are imported from utils
-from utils.judge_prompts import (
+from .utils.judge_prompts import (
     structure_check_prompt,
     coherence_check_prompt,
     hallucination_check_prompt,

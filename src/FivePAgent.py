@@ -57,7 +57,7 @@ Source Notes (RAGs):
 
 Return a JSON object with:
         {{
-          "source_name": str,
+          
           "porter_force": str,
           "summary": str,
           "key_metrics": [str],

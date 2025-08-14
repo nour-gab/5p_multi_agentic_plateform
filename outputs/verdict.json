@@ -1,30 +1,4 @@
 {
-  "verdict": "Fail",
-  "structure": {
-    "Threat_of_New_Entrants": "Present",
-    "Bargaining_Power_of_Suppliers": "Present",
-    "Bargaining_Power_of_Buyers": "Present",
-    "Threat_of_Substitutes": "Present",
-    "Industry_Rivalry": "Present"
-  },
-  "coherence": {
-    "flow_score": 6,
-    "issues": [
-      "The 'Threat of Substitute Products' section shifts focus to the MLOps market for SMBs, which is incongruous with the broader FinTech context and disrupts logical coherence.",
-      "In the 'Threat of New Entrants' section, the claim that the threat is high conflicts with the description of strong incumbent advantages, creating a contradictory argument.",
-      "Repeated phrasing across sections (e.g., strategic recommendations to enhance loyalty, tiered pricing, and partnerships) leads to redundancy and reduces the perceived novelty of each section.",
-      "Several sentences are overly long and contain multiple clauses, making them difficult to parse and affecting sentence-level readability.",
-      "Transitions between sections are minimal, causing a slightly choppy flow despite the overall logical structure."
-    ]
-  },
-  "hallucinations": [
-    {
-      "type": "visual",
-      "description": "Seeing pink elephants"
-    },
-    {
-      "type": "auditory",
-      "description": "Hearing voices"
-    }
-  ]
+  "status": "error",
+  "message": "'Input to PromptTemplate is missing variables {\\'\\\\n    \"source_name\"\\'}.  Expected: [\\'\\\\n    \"source_name\"\\'] Received: [\\'report\\']\\nNote: if you intended {\\n    \"source_name\"} to be part of the string and not a variable, please escape it with double curly braces like: \\'{{\\n    \"source_name\"}}\\'.\\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT '"
 }

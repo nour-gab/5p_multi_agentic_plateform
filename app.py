@@ -12,7 +12,7 @@ load_dotenv()
 
 app = FastAPI(title="Fintech Analysis Platform")
 
-bot = PortalyzeBot()
+# bot = PortalyzeBot()
 
 @app.post("/verify_idea")
 async def verify_idea(data: dict = Body(...)):
@@ -44,8 +44,13 @@ async def get_dashboard_data():
     except FileNotFoundError:
         return JSONResponse(content={"error": "No dashboard data found"}, status_code=404)
 
-@app.post("/chatbot")
-async def chatbot_query(data: dict = Body(...)):
-    """RAG chatbot over merged_report.txt."""
-    answer = bot.ask(data["question"], data.get("chat_history", []))
-    return {"answer": answer}
+# @app.post("/chatbot")
+# async def chatbot_query(data: dict = Body(...)):
+#     """RAG chatbot over merged_report.txt."""
+#     answer = bot.ask(data["question"], data.get("chat_history", []))
+#     return {"answer": answer}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)

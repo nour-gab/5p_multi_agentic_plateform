@@ -1,20 +1,22 @@
 {
   "porter_force": "Supplier Power",
   "keywords": [
-    "FinTech cloud provider market share 2023 2024",
-    "API gateway pricing FinTech industry",
-    "RegTech vendor concentration FinTech",
-    "KYC AML solution providers FinTech",
-    "financial data supplier dominance",
-    "cybersecurity provider FinTech partnerships",
-    "AI infrastructure FinTech investment 2024",
-    "payment processing API costs FinTech"
+    "Blockchain infrastructure providers FinTech",
+    "AI model APIs decentralized finance",
+    "Web3 data oracle services",
+    "Crypto custodian technology suppliers",
+    "Smart contract audit firms blockchain",
+    "Cloud computing services DLT FinTech",
+    "Agentic AI platform providers fintech",
+    "Regulatory compliance tech blockchain"
   ],
-  "strategy": "The DeepCrawlerAgent will execute targeted searches using the provided keywords to assess the bargaining power of key suppliers within the FinTech sector. The strategy involves identifying dominant cloud infrastructure providers (e.g., AWS, Azure, GCP), specialized API and data vendors (e.g., payment gateways, identity verification, market data), and critical RegTech/cybersecurity solution providers. The agent will prioritize recent analyst reports, industry news, vendor partnership announcements, and M&A activities from the last 6-12 months to understand supplier concentration, pricing trends, and the switching costs for FinTech firms. The goal is to identify potential bottlenecks, dependency risks, and the overall influence of these suppliers on FinTech operational costs, innovation capacity, and time-to-market.",
+  "strategy": "The DeepCrawlerAgent will target key suppliers to the FinTech industry, specifically those enabling blockchain and agentic AI applications. Using targeted keywords like \"Blockchain infrastructure providers FinTech\" and \"AI model APIs decentralized finance,\" the agent will identify companies offering critical services such as cloud computing, data provision, oracle networks, smart contract auditing, and specialized AI/Web3 development tools. The crawling strategy will prioritize recent data (last 6-12 months) from tech news outlets, industry reports, company press releases, and investment analyses to assess supplier concentration, unique service offerings, and potential switching costs. This approach aims to uncover dependencies, potential supply chain risks, and the bargaining power held by these technology enablers over FinTech firms leveraging distributed ledger technologies and advanced AI.",
   "recommended_apis": [
-    "Crunchbase API",
+    "Crunchbase",
     "CB Insights",
-    "Tavily API",
-    "SEC EDGAR (for public tech suppliers)"
+    "PitchBook",
+    "Messari",
+    "Chainalysis",
+    "SEC EDGAR"
   ]
 }

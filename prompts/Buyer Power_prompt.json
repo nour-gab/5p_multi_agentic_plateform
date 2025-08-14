@@ -1,20 +1,22 @@
 {
   "porter_force": "Buyer Power",
   "keywords": [
-    "FinTech customer retention strategies 2023-2024",
-    "FinTech customer switching costs analysis",
-    "FinTech consumer price sensitivity trends",
-    "Digital banking user preferences",
-    "Neobank customer churn rates 2023-2024",
-    "Payment app user engagement metrics",
-    "Personal finance app stickiness factors",
-    "FinTech customer acquisition cost trends"
+    "blockchain banking customer adoption",
+    "DeFi user retention rates",
+    "FinTech blockchain switching costs",
+    "agentic AI financial service price sensitivity",
+    "Web3 payment user experience challenges",
+    "tokenized asset buyer demand trends",
+    "decentralized finance consumer loyalty",
+    "blockchain wallet customer churn"
   ],
-  "strategy": "The DeepCrawlerAgent will execute a targeted crawl to assess buyer power within the FinTech industry. Utilizing the specified keywords, the agent will primarily leverage search APIs (e.g., Tavily, Gemini) to discover recent articles, market reports, and industry analyses (focusing on the last 6-12 months) that shed light on FinTech consumer behavior. The strategy emphasizes identifying factors such as customer retention rates, perceived switching costs, and the overall price sensitivity of FinTech users. The agent will prioritize sources detailing user satisfaction, product feature demands, and competitive pricing strategies adopted by FinTech companies, aiming to quantify the influence customers exert over market dynamics and product offerings.",
+  "strategy": "The DeepCrawlerAgent will focus on identifying the key determinants of buyer power within the blockchain-enabled FinTech sector, especially where agentic AI is involved. The strategy involves comprehensive crawling for data on customer adoption rates, perceived value, and the friction points (switching costs) associated with blockchain-based financial services. It will prioritize recent market research reports, user sentiment analysis, and competitive landscape assessments from the last 6-12 months. The agent will seek to understand how well new FinTech solutions leveraging blockchain and AI meet buyer needs versus traditional or alternative options, assessing their ability to dictate terms, influence pricing, and switch providers with ease.",
   "recommended_apis": [
+    "Crunchbase",
     "CB Insights",
     "Statista",
-    "App Annie (or Sensor Tower)",
-    "Gartner (for market reports)"
+    "Dune Analytics",
+    "Nansen",
+    "Public financial news APIs (e.g., NewsAPI.org for general sentiment)"
   ]
 }

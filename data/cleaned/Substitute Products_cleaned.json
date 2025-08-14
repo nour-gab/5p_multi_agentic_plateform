@@ -1,3 +1,52 @@
 {
-  "insights": []
+  "insights": [
+    {
+      "id": "0b30cde8-fd96-41f7-a818-cccffeda0d3d",
+      "source_name": "More friends than foes? The impact of automobility-as-a-service on ...",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0040162518318213",
+      "porter_force": "Substitute Products",
+      "keywords": "car sharing platform investment trends, ride-hailing business model disruption, vehicle subscription financing models, micro-mobility payment solutions, peer-to-peer car rental innovation, digital car ownership platforms, Mobility-as-a-Service (MaaS) market growth, sustainable transport financing innovations, public transportation digital payment adoption",
+      "content": "Failed to extract content: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0040162518318213",
+      "entities": {
+        "organizations": [],
+        "people": [],
+        "locations": []
+      },
+      "dates": [],
+      "timestamp": "2025-08-14T11:00:38.632497Z",
+      "content_summary": "Unfortunately, I'm unable to access the content from the provided URL due to the 403 Client Error: Forbidden. However, I can guide you on how to summarize the content in 100-150 words, focusing on key insights relevant to Substitute Products in the FinTech market, if you provide the content.\n\nIf you'd like, you can also provide a brief description of the content, and I'll help you summarize the key points related to Substitute Products in the FinTech market, including competitors, market trends, or strategic moves. This will enable me to provide a concise and clear summary suitable for a RAG report and visualization dashboard."
+    },
+    {
+      "id": "a7d5be02-d96a-4bf5-800b-695d2e0abd2f",
+      "source_name": "71 EV Startups That Are Helping Keep The Earth Healthy And Clean",
+      "url": "https://inc42.com/startups/24-ev-startups-that-are-helping-keep-the-earth-healthy-clean/",
+      "porter_force": "Substitute Products",
+      "keywords": "car sharing platform investment trends, ride-hailing business model disruption, vehicle subscription financing models, micro-mobility payment solutions, peer-to-peer car rental innovation, digital car ownership platforms, Mobility-as-a-Service (MaaS) market growth, sustainable transport financing innovations, public transportation digital payment adoption",
+      "content": "",
+      "entities": {
+        "organizations": [],
+        "people": [],
+        "locations": []
+      },
+      "dates": [],
+      "timestamp": "2025-08-14T11:00:39.332304Z",
+      "content_summary": "However, I don't see any content provided. Please share the content related to the FinTech market and Substitute Products, and I'll be happy to assist you in summarizing it in 100-150 words, focusing on key insights relevant to the topic. I'll highlight competitors, market trends, or strategic moves, and present the summary in a concise, clear, and suitable format for a RAG report and visualization dashboard."
+    },
+    {
+      "id": "c1a11931-5473-41b7-8cd5-84bd772e4944",
+      "source_name": "Truck and Fleet Middle East | Home",
+      "url": "https://truckandfleetme.com/",
+      "porter_force": "Substitute Products",
+      "keywords": "car sharing platform investment trends, ride-hailing business model disruption, vehicle subscription financing models, micro-mobility payment solutions, peer-to-peer car rental innovation, digital car ownership platforms, Mobility-as-a-Service (MaaS) market growth, sustainable transport financing innovations, public transportation digital payment adoption",
+      "content": "Failed to extract content: 403 Client Error: Forbidden for url: https://truckandfleetme.com/",
+      "entities": {
+        "organizations": [],
+        "people": [],
+        "locations": []
+      },
+      "dates": [],
+      "timestamp": "2025-08-14T11:00:44.027707Z",
+      "content_summary": "I'm unable to access the provided URL as it's not a publicly accessible webpage. However, I can guide you on how to summarize content relevant to Substitute Products in the FinTech market.\n\nTo provide a summary, please share the content, and I'll help you:\n\n1. Identify key insights related to Substitute Products in the FinTech market.\n2. Highlight competitors, market trends, or strategic moves.\n3. Condense the information into a 100-150 word summary suitable for a RAG report and visualization dashboard.\n\nPlease provide the content, and I'll assist you accordingly."
+    }
+  ]
 }

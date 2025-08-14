@@ -17,4 +17,5 @@ dependencies = [
     "langchain-openai>=0.3.28",
     "langdetect>=1.0.9",
     "nltk>=3.9.1",
+    "uvicorn>=0.35.0",
 ]

@@ -9,14 +9,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Import all agents and necessary components
-from VerifAgent import FintechIdeaAnalyzer
-from metaPrompter import MetaPromptAgent
-from crawler import DeepCrawlerAgent
-from smartCleaner import CleanerAgent
-from ForceRAG import configure_document, get_response, save_report
-from FivePAgent import FivePAgent
-from JudgeLLM import LLMJudge
-from dashboard_llm import DashboardAgent
+from .VerifAgent import FintechIdeaAnalyzer
+from .metaPrompter import MetaPromptAgent
+from .crawler import DeepCrawlerAgent
+from .smartCleaner import CleanerAgent
+from .ForceRAG import configure_document, get_response, save_report
+from .FivePAgent import FivePAgent
+from .JudgeLLM import LLMJudge
+from .dashboard_llm import DashboardAgent
 
 # Define Porter forces
 PORTER_FORCES = [
@@ -149,11 +149,35 @@ async def judge_node(state: PipelineState) -> PipelineState:
     return state
 
 # Node: Generate Dashboard Analysis
+# async def dashboard_node(state: PipelineState) -> PipelineState:
+#     agent = DashboardAgent(api_key=os.getenv("GROQ_API_KEY"))
+#     for attempt in range(3):  # Retry for rate limits
+#         try:
+#             analysis = await asyncio.to_thread(agent.generate_dashboard, "outputs/verdict.json")
+#             break
+#         except Exception as e:
+#             if "Rate limit reached" in str(e):
+#                 wait_time = 10 * (2 ** attempt)
+#                 print(f"Rate limit hit in DashboardAgent, retrying in {wait_time}s: {e}")
+#                 await asyncio.sleep(wait_time)
+#             else:
+#                 raise
+#     else:
+#         raise ValueError("DashboardAgent failed after retries due to rate limits")
+    
+#     state["dashboard_analysis"] = analysis
+#     os.makedirs("outputs", exist_ok=True)
+#     with open("outputs/dashboard_analysis.json", "w", encoding="utf-8") as f:
+#         json.dump(analysis, f, indent=2)
+#     return state
+
+# Node: Generate Dashboard Analysis
 async def dashboard_node(state: PipelineState) -> PipelineState:
     agent = DashboardAgent(api_key=os.getenv("GROQ_API_KEY"))
     for attempt in range(3):  # Retry for rate limits
         try:
-            analysis = await asyncio.to_thread(agent.run, "outputs/verdict.json")
+            # Use the merged report text, not a path to verdict.json
+            analysis = await asyncio.to_thread(agent.generate_dashboard, state["merged_report"])
             break
         except Exception as e:
             if "Rate limit reached" in str(e):
@@ -168,8 +192,9 @@ async def dashboard_node(state: PipelineState) -> PipelineState:
     state["dashboard_analysis"] = analysis
     os.makedirs("outputs", exist_ok=True)
     with open("outputs/dashboard_analysis.json", "w", encoding="utf-8") as f:
-        json.dump(analysis, f, indent=2)
+        json.dump(analysis, f, indent=2, ensure_ascii=False)
     return state
+
 
 # Build LangGraph Workflow
 workflow = StateGraph(PipelineState)

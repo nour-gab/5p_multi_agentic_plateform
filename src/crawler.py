@@ -1,9 +1,9 @@
 import json
 import os
 import re
-from utils.search_api import query_sources
-from utils.extractors import extract_content
-from utils.loggers import setup_logger
+from .utils.search_api import query_sources
+from .utils.extractors import extract_content
+from .utils.loggers import setup_logger
 
 
 class DeepCrawlerAgent:
@@ -41,7 +41,21 @@ class DeepCrawlerAgent:
         """
         Construct a query for Tavily search from keywords.
         """
-        return f"{self.porter_force} {keywords} FinTech market trends"
+        from google.generativeai import GenerativeModel
+        model = GenerativeModel("gemini-2.5-flash")
+        prompt = f"""
+        Generate a Tavily search query based on the following keywords: 
+        {keywords}
+        Ensure the query is specific to Porter's {self.porter_force} Force in the FinTech sector.
+        Return a string that can be used directly in Tavily search with max character string length being 400. 
+        """
+        response = model.generate_content(prompt)
+        if not response or not response.text:
+            self.logger.error("Failed to generate Tavily query from keywords")
+            return keywords
+        
+        query = response.text.strip()
+        return re.sub(r'\s+', ' ', query)  # Normalize whitespace
 
     def run(self):
         """
@@ -118,5 +132,5 @@ class DeepCrawlerAgent:
         return summary_json
 
 if __name__ == "__main__":
-    agent = DeepCrawlerAgent(porter_force="Buyer Power")
+    agent = DeepCrawlerAgent(porter_force="Rivalry")
     agent.run()

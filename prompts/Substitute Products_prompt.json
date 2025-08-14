@@ -1,21 +1,20 @@
 {
   "porter_force": "Substitute Products",
   "keywords": [
-    "Open Banking alternatives adoption",
-    "Decentralized Finance (DeFi) threat traditional finance",
-    "Embedded finance non-bank solutions",
-    "Cryptocurrency payment mainstream adoption",
-    "Neobank customer migration rates",
-    "AI-powered financial advisory disruption",
-    "Big Tech financial services market share",
-    "Peer-to-peer lending growth rates",
-    "Traditional banking digital transformation response"
+    "Traditional banking digital transformation FinTech",
+    "AI-powered financial services non-blockchain",
+    "Centralized ledger technology alternatives DLT",
+    "Open banking impact blockchain substitutes",
+    "Real-time payments innovation non-DLT",
+    "Central Bank Digital Currency adoption impact",
+    "Big Tech financial offerings competition FinTech",
+    "Agentic AI financial market non-blockchain"
   ],
-  "strategy": "The DeepCrawlerAgent will execute a targeted crawling strategy focused on identifying emerging substitute products and services within the FinTech sector. It will leverage the specified keywords to pinpoint discussions, reports, and analyses concerning alternative financial platforms, disruptive technologies, and shifts in consumer behavior over the last 6-12 months. The agent will prioritize sources detailing adoption rates, market penetration of new alternatives, and the strategic responses of incumbent financial institutions to these evolving threats. Emphasis will be placed on identifying technologies like AI, blockchain, and open banking initiatives that enable novel substitute offerings, analyzing their potential to displace existing financial products and services.",
+  "strategy": "The DeepCrawlerAgent will execute targeted searches focusing on potential substitutes for blockchain-based solutions within the FinTech sector over the last 6-12 months. The strategy involves identifying traditional financial services that have significantly digitized, as well as emerging non-DLT technologies like advanced AI (especially agentic AI) or sophisticated centralized systems offering competitive advantages in areas typically addressed by blockchain (e.g., security, efficiency, transparency). The agent will analyze industry reports, news articles, regulatory updates on CBDCs, and company announcements to pinpoint innovations that could displace or diminish the need for blockchain in areas like payments, identity, or asset management. Emphasis will be placed on understanding the capabilities, market penetration, and value propositions of these alternative solutions.",
   "recommended_apis": [
     "Crunchbase",
     "CB Insights",
-    "SEC EDGAR",
-    "PitchBook"
+    "Gartner",
+    "Finextra"
   ]
 }
