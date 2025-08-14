@@ -82,8 +82,7 @@ class DashboardAgent:
         self.parser = OutputFixingParser.from_llm(parser=json_parser, llm=self.llm)
 
     def generate_dashboard(self, report: str) -> dict:
-        prompt_text = """
-You are an AI assistant. You will be given a FinTech Porter's Five Forces report.
+        prompt_text = """You are an AI assistant. You will be given a FinTech Porter's Five Forces report.
 You must output ONLY a valid JSON object following the schema below:
 {format_instructions}
 
@@ -91,7 +90,26 @@ CRITICAL RULES:
 - Output JSON only, no explanations, no <think> tags, no markdown.
 - Ensure it is strictly valid JSON.
 - All fields must follow the schema exactly.
-- Visualization code must be valid Python (matplotlib).
+- Visualization data must be structured for frontend chart libraries (not Python matplotlib code).
+
+VISUALIZATION FORMAT REQUIREMENTS:
+- Each visualization must include: "description", "type", and "data"
+- Supported chart types: "bar", "pie", "stackedBar", "line", "multiLine"
+- like the following examples:
+dictionary with keys:
+- "description": A brief description of the visualization.
+- "type": The type of chart (e.g., "bar", "pie").
+- "data": A dictionary with keys:
+  - "labels": List of labels for the x-axis or categories.
+  - "values": List of numerical values corresponding to the labels.
+
+        
+
+IMPORTANT NOTES:
+- Always include at least one visualization per Porter's force
+- Data arrays must contain actual numerical values extracted from the report
+- Use descriptive names for data keys that match the visualization context
+- Ensure data is realistic and consistent with the insights provided
 
 Report:
 {report}

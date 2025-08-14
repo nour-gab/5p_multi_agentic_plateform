@@ -1,19 +1,21 @@
 {
   "porter_force": "New Entrants",
   "keywords": [
-    "FinTech blockchain AI startups funding latest",
-    "Agentic AI in finance market entry barriers",
-    "Web3 FinTech venture capital trends past 12 months",
-    "Emerging decentralized finance AI companies 2023-2024",
-    "Blockchain AI regulatory sandbox FinTech",
-    "New crypto AI finance competitors",
-    "Funding rounds FinTech AI blockchain Q3 2023 - Q2 2024"
+    "FinTech startup funding trends 2023-2024",
+    "Barriers to entry FinTech market recent",
+    "Emerging challenger banks investment",
+    "Embedded finance new companies funding",
+    "Web3 DeFi startups market entry 2023-2024",
+    "FinTech regulatory sandbox developments",
+    "Venture Capital FinTech deals last 12 months",
+    "Disruptive financial technology entrants"
   ],
-  "strategy": "The DeepCrawlerAgent will execute targeted searches focusing on recent developments (last 6-12 months) concerning new companies entering the FinTech sector leveraging blockchain and agentic AI. The strategy involves monitoring venture capital funding announcements, startup accelerators, and industry reports to identify emerging players and their initial market traction. The agent will also investigate regulatory changes or sandbox initiatives that might facilitate or hinder new entry for blockchain and AI-powered financial services. Key data points to extract include funding amounts, investor types, stated value propositions, and any public discussions about market entry challenges or competitive advantages held by incumbents, providing insights into the barriers to entry and the velocity of new firm creation in this specific niche.",
+  "strategy": "The DeepCrawlerAgent will focus on identifying new and emerging players in the FinTech sector over the past 6-12 months. The strategy involves leveraging targeted keywords to discover recent startup funding rounds, venture capital investment trends, and new company formations. A key objective is to analyze the various barriers to entry, including regulatory compliance, capital requirements, and brand recognition, as well as facilitators like regulatory sandboxes or technological advancements. The agent will also seek information on the business models and value propositions of these new entrants, evaluating their potential to disrupt existing markets. This comprehensive approach aims to gauge the threat of new competition by understanding their financial backing, innovative offerings, and the ease or difficulty of their market penetration.",
   "recommended_apis": [
     "Crunchbase",
     "CB Insights",
     "PitchBook",
-    "SEC EDGAR"
+    "SEC EDGAR",
+    "TechCrunch (FinTech section)"
   ]
 }

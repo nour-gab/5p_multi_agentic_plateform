@@ -1,4 +1,4 @@
 {
   "status": "error",
-  "message": "'Input to PromptTemplate is missing variables {\\'\\\\n    \"source_name\"\\'}.  Expected: [\\'\\\\n    \"source_name\"\\'] Received: [\\'report\\']\\nNote: if you intended {\\n    \"source_name\"} to be part of the string and not a variable, please escape it with double curly braces like: \\'{{\\n    \"source_name\"}}\\'.\\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT '"
+  "message": "'Input to PromptTemplate is missing variables {\\'\\\\n  \"porter_force\"\\'}.  Expected: [\\'\\\\n  \"porter_force\"\\'] Received: [\\'report\\']\\nNote: if you intended {\\n  \"porter_force\"} to be part of the string and not a variable, please escape it with double curly braces like: \\'{{\\n  \"porter_force\"}}\\'.\\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT '"
 }

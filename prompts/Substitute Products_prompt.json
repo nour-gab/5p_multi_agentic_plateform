@@ -1,20 +1,21 @@
 {
   "porter_force": "Substitute Products",
   "keywords": [
-    "Traditional banking digital transformation FinTech",
-    "AI-powered financial services non-blockchain",
-    "Centralized ledger technology alternatives DLT",
-    "Open banking impact blockchain substitutes",
-    "Real-time payments innovation non-DLT",
-    "Central Bank Digital Currency adoption impact",
-    "Big Tech financial offerings competition FinTech",
-    "Agentic AI financial market non-blockchain"
+    "DeFi FinTech alternatives adoption 2023 2024",
+    "Embedded finance platforms replacing FinTech",
+    "Big Tech financial services expansion threat",
+    "Open Banking API disruption FinTech",
+    "Central Bank Digital Currency competitive impact",
+    "Web3 financial solutions market share",
+    "Alternative payment methods growth recent",
+    "AI financial advisory substitutes",
+    "SaaS fintech replacement trends"
   ],
-  "strategy": "The DeepCrawlerAgent will execute targeted searches focusing on potential substitutes for blockchain-based solutions within the FinTech sector over the last 6-12 months. The strategy involves identifying traditional financial services that have significantly digitized, as well as emerging non-DLT technologies like advanced AI (especially agentic AI) or sophisticated centralized systems offering competitive advantages in areas typically addressed by blockchain (e.g., security, efficiency, transparency). The agent will analyze industry reports, news articles, regulatory updates on CBDCs, and company announcements to pinpoint innovations that could displace or diminish the need for blockchain in areas like payments, identity, or asset management. Emphasis will be placed on understanding the capabilities, market penetration, and value propositions of these alternative solutions.",
+  "strategy": "The DeepCrawlerAgent will focus on identifying emerging technologies, alternative service models, and non-traditional players that offer similar or superior value propositions to existing FinTech solutions. The crawling strategy involves leveraging the high-impact keywords to search for recent market reports, industry analyses, news articles, and competitive landscape assessments (last 6-12 months). The agent will prioritize sources discussing adoption rates, user shifts, and investment trends in substitute technologies like Decentralized Finance (DeFi), embedded finance, and Big Tech's financial ventures. Emphasis will be placed on understanding the convenience, cost-effectiveness, and regulatory implications of these substitutes to gauge their threat level to established FinTech products.",
   "recommended_apis": [
-    "Crunchbase",
-    "CB Insights",
-    "Gartner",
-    "Finextra"
+    "Crunchbase (for startup funding and competitor analysis of substitutes)",
+    "CB Insights (for emerging tech trends and market maps of disruptive solutions)",
+    "SEC EDGAR (for public company filings mentioning competitive threats and new ventures)",
+    "Statista (for market size and adoption rate statistics of alternative financial services)"
   ]
 }

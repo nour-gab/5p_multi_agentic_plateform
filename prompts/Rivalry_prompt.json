@@ -1,22 +1,21 @@
 {
   "porter_force": "Rivalry",
   "keywords": [
-    "FinTech blockchain competitive landscape",
-    "Agentic AI financial market share",
-    "Top blockchain AI FinTech companies",
-    "FinTech blockchain M&A 2023-2024",
-    "Competitive strategy blockchain finance",
-    "Pricing wars decentralized finance",
-    "Key players agentic AI in FinTech",
-    "Recent FinTech blockchain acquisitions",
-    "Decentralized identity competitive analysis"
+    "FinTech market share trends 2023-2024",
+    "Major FinTech acquisitions mergers recent",
+    "FinTech competitive landscape analysis",
+    "Neobank competition strategies",
+    "Payments processing market rivalry",
+    "Digital lending market concentration",
+    "FinTech pricing strategies comparison",
+    "Embedded finance competitive threats"
   ],
-  "strategy": "The DeepCrawlerAgent will focus on identifying the intensity of competition within the FinTech blockchain sector, with a specific emphasis on the integration and impact of agentic AI. The strategy involves leveraging the provided keywords to scour financial news outlets, industry reports, company press releases, and investment databases for information on major competitors, their market shares, recent mergers and acquisitions (M&A), strategic partnerships, and pricing models. The agent will prioritize data from the last 6-12 months to capture the most current competitive dynamics. It will identify emerging threats from agile startups and strategic shifts by established players, analyzing product differentiation and technological advancements, particularly those driven by agentic AI capabilities.",
+  "strategy": "The DeepCrawlerAgent will execute targeted searches using the provided keywords to map the FinTech industry's competitive landscape. The strategy will prioritize recent data (last 6-12 months) from financial news outlets, industry analysis reports, and corporate press releases. Emphasis will be placed on identifying market leaders, their current market share, strategic partnerships, M&A activities, and competitive pricing dynamics. The agent will also look for indicators of competitive intensity such as aggressive marketing campaigns, technology innovation races, and new product launches by key players. Data collection will aim to gather quantifiable metrics where possible, such as transaction volumes, customer growth, and revenue figures of major competitors, to feed into a comprehensive market analysis by the agentic AI.",
   "recommended_apis": [
-    "Crunchbase API",
-    "CB Insights API",
-    "PitchBook API",
-    "SEC EDGAR (for public company filings)",
-    "Financial News APIs (e.g., Bloomberg/Refinitiv data feeds for M&A news and market data)"
+    "Crunchbase",
+    "CB Insights",
+    "SEC EDGAR",
+    "PitchBook",
+    "Statista"
   ]
 }

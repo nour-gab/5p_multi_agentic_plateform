@@ -1,22 +1,22 @@
 {
   "porter_force": "Buyer Power",
   "keywords": [
-    "blockchain banking customer adoption",
-    "DeFi user retention rates",
-    "FinTech blockchain switching costs",
-    "agentic AI financial service price sensitivity",
-    "Web3 payment user experience challenges",
-    "tokenized asset buyer demand trends",
-    "decentralized finance consumer loyalty",
-    "blockchain wallet customer churn"
+    "FinTech consumer behavior trends 2023-2024",
+    "Digital banking customer churn rates recent",
+    "Mobile payment app switching costs analysis",
+    "FinTech pricing sensitivity consumer research",
+    "Embedded finance customer demand drivers",
+    "Neobank customer loyalty programs effectiveness",
+    "Open banking consumer data control",
+    "FinTech user experience impact on retention",
+    "Cross-border payments customer expectations"
   ],
-  "strategy": "The DeepCrawlerAgent will focus on identifying the key determinants of buyer power within the blockchain-enabled FinTech sector, especially where agentic AI is involved. The strategy involves comprehensive crawling for data on customer adoption rates, perceived value, and the friction points (switching costs) associated with blockchain-based financial services. It will prioritize recent market research reports, user sentiment analysis, and competitive landscape assessments from the last 6-12 months. The agent will seek to understand how well new FinTech solutions leveraging blockchain and AI meet buyer needs versus traditional or alternative options, assessing their ability to dictate terms, influence pricing, and switch providers with ease.",
+  "strategy": "The DeepCrawlerAgent will focus on identifying factors influencing buyer power within the FinTech sector. This involves leveraging a tailored set of keywords such as \"FinTech customer retention strategies\", \"digital banking switching costs analysis\", \"mobile payment app price sensitivity\", \"consumer FinTech demand trends\", and \"embedded finance customer expectations\" to pinpoint recent market research reports, industry analyses, and consumer surveys. The primary goal is to gather data from the past 6-12 months. The strategy will prioritize uncovering insights into customer segmentation, demand elasticity, loyalty programs, and the ease with which customers can switch between FinTech providers or traditional banking services. The agent will aim to collect quantitative and qualitative data on consumer preferences, pain points, and the perceived value of various FinTech offerings, forming a comprehensive assessment of buyer leverage.",
   "recommended_apis": [
     "Crunchbase",
     "CB Insights",
     "Statista",
-    "Dune Analytics",
-    "Nansen",
-    "Public financial news APIs (e.g., NewsAPI.org for general sentiment)"
+    "SEC EDGAR",
+    "Gartner/Forrester (for report titles/summaries)"
   ]
 }

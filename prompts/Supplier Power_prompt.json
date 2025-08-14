@@ -1,22 +1,21 @@
 {
   "porter_force": "Supplier Power",
   "keywords": [
-    "Blockchain infrastructure providers FinTech",
-    "AI model APIs decentralized finance",
-    "Web3 data oracle services",
-    "Crypto custodian technology suppliers",
-    "Smart contract audit firms blockchain",
-    "Cloud computing services DLT FinTech",
-    "Agentic AI platform providers fintech",
-    "Regulatory compliance tech blockchain"
+    "FinTech cloud infrastructure trends",
+    "FinTech data providers market power",
+    "AI/ML platform FinTech suppliers",
+    "BaaS API providers market concentration",
+    "FinTech RegTech vendor consolidation",
+    "Cybersecurity vendors FinTech dependency",
+    "Payment gateway providers dominance FinTech",
+    "Core banking system vendors market share"
   ],
-  "strategy": "The DeepCrawlerAgent will target key suppliers to the FinTech industry, specifically those enabling blockchain and agentic AI applications. Using targeted keywords like \"Blockchain infrastructure providers FinTech\" and \"AI model APIs decentralized finance,\" the agent will identify companies offering critical services such as cloud computing, data provision, oracle networks, smart contract auditing, and specialized AI/Web3 development tools. The crawling strategy will prioritize recent data (last 6-12 months) from tech news outlets, industry reports, company press releases, and investment analyses to assess supplier concentration, unique service offerings, and potential switching costs. This approach aims to uncover dependencies, potential supply chain risks, and the bargaining power held by these technology enablers over FinTech firms leveraging distributed ledger technologies and advanced AI.",
+  "strategy": "The DeepCrawlerAgent will focus on identifying and assessing the bargaining power of critical suppliers to the FinTech industry. The strategy involves targeting search results from the last 6-12 months using the provided keywords. Initial crawls will prioritize reputable industry analyses, financial news outlets, and technology vendor reports to uncover market share, dependency levels, and pricing trends among key infrastructure, data, and service providers. Special attention will be paid to cloud computing providers, specialized API platforms (e.g., payments, BaaS), cybersecurity solutions, and regulatory technology (RegTech) vendors. The agent will analyze content for indicators of supplier concentration, switching costs for FinTech firms, and any recent supply chain disruptions or M&A activities involving these critical suppliers. This will provide a comprehensive view of how supplier dynamics influence FinTech operational costs and strategic flexibility.",
   "recommended_apis": [
     "Crunchbase",
     "CB Insights",
     "PitchBook",
-    "Messari",
-    "Chainalysis",
-    "SEC EDGAR"
+    "Statista",
+    "Gartner/Forrester Research"
   ]
 }

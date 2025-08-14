@@ -7,10 +7,18 @@ from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from src.pipeline import run_pipeline, verif_node, PipelineState
 from src.PortalyzeBot import PortalyzeBot
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
 app = FastAPI(title="Fintech Analysis Platform")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or ["*"] for all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
 
 # bot = PortalyzeBot()
 
@@ -43,6 +51,16 @@ async def get_dashboard_data():
         return JSONResponse(content=data)
     except FileNotFoundError:
         return JSONResponse(content={"error": "No dashboard data found"}, status_code=404)
+    
+@app.get("/idea_report")
+async def get_idea_report():
+    """Fetches the enhanced idea report."""
+    try:
+        with open("idea/idea_report.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return JSONResponse(content=data)
+    except FileNotFoundError:
+        return JSONResponse(content={"error": "No idea report found"}, status_code=404)
 
 # @app.post("/chatbot")
 # async def chatbot_query(data: dict = Body(...)):
@@ -53,4 +71,4 @@ async def get_dashboard_data():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app:app", host="0.0.0.0", port=8090, reload=True)

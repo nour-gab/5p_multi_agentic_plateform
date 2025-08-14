@@ -1,98 +1,162 @@
 {
   "Rivalry": {
     "insights": [
-      "Market Concentration Score of 6/10 with key players like PayPal and Stripe coexisting with smaller firms.",
-      "15% YoY increase in digital payments transaction volume and 20% YoY rise in AI-driven solutions.",
-      "10% YoY increase in regulatory compliance investments.",
-      "8% average profit margin with $15 billion invested in AI and blockchain."
+      "Moderately concentrated competitive landscape with a Market Concentration Score of 6/10.",
+      "Key trends include a 15% YoY increase in digital payments and a 20% YoY rise in AI-driven solutions.",
+      "Average profit margin of 8% across key players with $15 billion invested in AI and blockchain."
     ],
     "recommendations": [
-      "Differentiate through AI and blockchain innovation.",
-      "Form partnerships with banks and tech firms for integrated solutions.",
-      "Enhance customer retention via improved user experiences and loyalty programs."
+      "Differentiate through innovation in AI and blockchain.",
+      "Forge strategic partnerships with banks and tech firms.",
+      "Prioritize customer retention via enhanced user experiences."
     ],
     "visualizations": [
       {
-        "description": "Bar chart comparing YoY growth in digital payments and AI-driven solutions.",
-        "code": "import matplotlib.pyplot as plt\n\ndata = {'Digital Payments': 15, 'AI-Driven Solutions': 20}\nplt.bar(data.keys(), data.values(), color=['blue', 'green'])\nplt.title('YoY Growth in FinTech Sectors')\nplt.ylabel('Percentage Growth')\nplt.show()"
+        "description": "Market Concentration Score",
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Market Concentration"
+          ],
+          "values": [
+            6
+          ]
+        }
       }
     ]
   },
   "Buyer_Power": {
     "insights": [
-      "Moderate buyer power with Customer Concentration Score of 6/10.",
-      "Switching costs vary by service type (high for integrated services, low for others).",
-      "Price sensitivity varies: consumers are more price-conscious than businesses.",
-      "Customer acquisition costs range from $50 (consumer apps) to thousands (enterprise)."
+      "Moderate buyer power with a score of 6/10.",
+      "Diverse buyer base with varying price sensitivity.",
+      "Customer acquisition cost (CAC) averages $750."
     ],
     "recommendations": [
-      "Implement loyalty programs and enhance user experience for retention.",
-      "Adopt tiered pricing models to cater to diverse segments.",
-      "Differentiate products with unique features to increase switching costs."
+      "Implement loyalty programs and personalized services.",
+      "Consider tiered or value-based pricing models.",
+      "Invest in product differentiation."
     ],
     "visualizations": [
       {
-        "description": "Pie chart showing customer acquisition cost distribution across segments.",
-        "code": "import matplotlib.pyplot as plt\n\nlabels = 'Consumer Apps', 'Enterprise Solutions'\nsizes = [50, 3000]\nplt.pie(sizes, labels=labels, autopct='%1.1f%%')\nplt.title('Customer Acquisition Costs')\nplt.show()"
+        "description": "Buyer Power Score Distribution",
+        "type": "pie",
+        "data": {
+          "labels": [
+            "Individual Consumers",
+            "Small Businesses",
+            "Large Institutions"
+          ],
+          "values": [
+            40,
+            30,
+            30
+          ]
+        }
       }
     ]
   },
   "Supplier_Power": {
     "insights": [
-      "High supplier power due to concentration of cloud providers (AWS, Azure) and payment processors.",
-      "Proprietary technologies (e.g., AI solutions) increase supplier leverage.",
-      "High switching costs due to technology investments and service disruptions.",
-      "Limited substitutes for specialized cloud services."
+      "Significant supplier power driven by concentration and unique offerings.",
+      "High switching costs for cloud services and payment processors.",
+      "Suppliers differentiate through specialized technologies."
     ],
     "recommendations": [
-      "Negotiate long-term contracts with suppliers for stability.",
-      "Diversify supplier base where possible to reduce dependency.",
-      "Invest in in-house infrastructure for critical components."
+      "Diversify suppliers and invest in in-house development.",
+      "Negotiate favorable long-term contracts.",
+      "Adopt technologies to reduce supplier dependencies."
     ],
     "visualizations": [
       {
-        "description": "Stacked bar chart showing factors affecting supplier power.",
-        "code": "import matplotlib.pyplot as plt\n\nfactors = ['Concentration', 'Proprietary Tech', 'Switching Costs']\nvalues = [7, 8, 9]\nplt.bar(factors, values, color='orange')\nplt.title('Supplier Power Factors')\nplt.ylabel('Impact Score')\nplt.show()"
+        "description": "Supplier Power by Category",
+        "type": "stackedBar",
+        "data": {
+          "labels": [
+            "Cloud Services",
+            "Payment Processors",
+            "Data Providers"
+          ],
+          "values": [
+            70,
+            60,
+            50
+          ]
+        }
       }
     ]
   },
   "Threat_of_New_Entrants": {
     "insights": [
-      "Entry Threat Score of 7/10 due to regulatory complexity (score 7/10) and high capital requirements (score 6/10).",
-      "Incumbent advantages are strong (score 8/10) with brand loyalty and customer bases.",
-      "New entrants include FinTech startups (1-3 years), banks (3-5 years), and tech giants (2-4 years)."
+      "Moderately high threat with an Entry Threat Score of 7/10.",
+      "Barriers include regulatory complexities and high capital requirements.",
+      "Incumbent advantages stem from brand loyalty and customer bases."
     ],
     "recommendations": [
-      "Leverage regulatory sandboxes to mitigate compliance barriers.",
-      "Acquire promising startups to preempt competition.",
-      "Strengthen customer loyalty through tailored offerings."
+      "Advocate for regulatory changes.",
+      "Acquire promising startups preemptively.",
+      "Invest in product differentiation."
     ],
     "visualizations": [
       {
-        "description": "Line chart tracking new licenses issued over time.",
-        "code": "import matplotlib.pyplot as plt\n\nyears = [2019, 2020, 2021, 2022]\nlicenses = [150, 180, 220, 250]\nplt.plot(years, licenses, marker='o')\nplt.title('New FinTech Licenses Issued')\nplt.xlabel('Year')\nplt.ylabel('Number of Licenses')\nplt.show()"
+        "description": "Entry Threat Score",
+        "type": "line",
+        "data": {
+          "labels": [
+            "Regulatory",
+            "Capital",
+            "Incumbent Advantage"
+          ],
+          "values": [
+            7,
+            6,
+            8
+          ]
+        }
       }
     ]
   },
   "Threat_of_Substitute_Products": {
     "insights": [
-      "High substitution threat (score 7/10) from open-source MLOps tools (MLflow, Kubeflow) and low-code platforms.",
-      "SMBs prefer cost-effective alternatives over proprietary solutions like Databricks.",
-      "Buyer switching willingness is high due to modular MLOps tools."
+      "High threat from substitutes, particularly open-source MLOps tools.",
+      "Low switching costs and feature parity with proprietary solutions.",
+      "Growing adoption of low-code platforms."
     ],
     "recommendations": [
-      "Enhance compatibility with open-source ecosystems.",
-      "Develop low-code/no-code interfaces for broader accessibility.",
-      "Offer tiered pricing to compete with cost-driven substitutes."
+      "Enhance compatibility with open-source tools.",
+      "Develop low-code capabilities.",
+      "Offer tiered pricing models."
     ],
     "visualizations": [
       {
-        "description": "Bar chart comparing costs of proprietary vs. open-source MLOps tools.",
-        "code": "import matplotlib.pyplot as plt\n\ndata = {'Proprietary': 10000, 'Open-Source': 500}\nplt.bar(data.keys(), data.values(), color=['red', 'cyan'])\nplt.title('MLOps Tool Costs')\nplt.ylabel('Average Cost ($/Year)')\nplt.show()"
+        "description": "Substitution Threat Index",
+        "type": "multiLine",
+        "data": {
+          "labels": [
+            "2023",
+            "2024",
+            "2025"
+          ],
+          "values": {
+            "Proprietary": [
+              100,
+              90,
+              80
+            ],
+            "Open-Source": [
+              50,
+              70,
+              90
+            ]
+          }
+        }
       }
     ]
   },
   "overall_summary": {
-    "summary": "The FinTech industry faces dynamic competition with moderate to high threats from substitutes and new entrants. Strategic focus on innovation, partnerships, and customer retention is critical. Supplier power remains elevated, necessitating robust vendor management. Continuous adaptation to regulatory and technological shifts will define long-term success."
+    "Rivalry": "Moderate competition with opportunities for differentiation through innovation.",
+    "Buyer_Power": "Balanced buyer power requiring personalized approaches.",
+    "Supplier_Power": "Significant supplier leverage necessitating diversification strategies.",
+    "Threat_of_New_Entrants": "Moderate threat with barriers to entry.",
+    "Threat_of_Substitute_Products": "High threat from open-source and low-code solutions."
   }
 }

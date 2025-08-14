@@ -1,100 +1,177 @@
 {
   "Rivalry": {
     "insights": [
-      "The FinTech industry is moderately concentrated with a market concentration score of 6/10.",
-      "Digital payments transaction volume grew by 15% YoY, while AI-driven solutions increased by 20%.",
-      "Leading firms maintain 8% average profit margins and 12% YoY revenue growth.",
-      "Investments in FinTech startups reached $15 billion in the past year."
+      "Moderate competitive rivalry with a Market Concentration Score of 6/10.",
+      "15% YoY increase in digital payments transaction volume.",
+      "20% YoY rise in AI adoption across solutions.",
+      "10% YoY growth in regulatory compliance investments.",
+      "Average profit margin of 8% among key players.",
+      "$15 billion investments in AI and blockchain technologies.",
+      "12% YoY revenue growth across the industry."
     ],
     "recommendations": [
-      "Differentiate through innovation in AI and blockchain technologies.",
-      "Form partnerships with banks and tech giants for market expansion.",
-      "Enhance customer retention via superior user experience and loyalty programs."
+      "Invest in AI and blockchain technologies for differentiation.",
+      "Form strategic partnerships with banks and tech firms.",
+      "Enhance customer retention through improved user experiences.",
+      "Develop loyalty initiatives to maintain market share."
     ],
     "visualizations": [
       {
-        "description": "Bar chart showing growth percentages of digital payments, AI adoption, and compliance investments.",
-        "code": "import matplotlib.pyplot as plt\n\ndata = {'Digital Payments': 15, 'AI Adoption': 20, 'Compliance Investments': 10}\nplt.bar(data.keys(), data.values(), color=['blue', 'green', 'orange'])\nplt.title('FinTech Industry Growth Metrics (YoY)')\nplt.ylabel('Percentage Growth')\nplt.show()"
+        "description": "Market Concentration and Growth Metrics",
+        "type": "bar",
+        "data": {
+          "labels": [
+            "Market Concentration",
+            "Digital Payments Growth",
+            "AI Adoption",
+            "Regulatory Compliance Investment",
+            "Profit Margins",
+            "Investments (AI & Blockchain)",
+            "Revenue Growth"
+          ],
+          "values": [
+            6,
+            15,
+            20,
+            10,
+            8,
+            15,
+            12
+          ]
+        }
       }
     ]
   },
   "Buyer_Power": {
     "insights": [
-      "Buyer power is moderate (6/10) with a diverse buyer base and moderate switching costs.",
-      "Buyer intent shows high engagement (lead score of 8/10) and CAC of $750.",
-      "Market growth rates range between 10-15% annually."
+      "Moderate buyer power with a Customer Concentration Score of 6/10.",
+      "Lead Score of 8/10 indicating strong buyer intent.",
+      "Market growth rates of 10-15% annually.",
+      "Customer Acquisition Costs (CAC) ranging from $500 to $1000.",
+      "Average CAC of $750 across the industry."
     ],
     "recommendations": [
-      "Implement loyalty programs and personalized services to enhance retention.",
-      "Adopt tiered or value-based pricing models for varied segments.",
-      "Differentiate products with unique features to attract niche markets."
+      "Implement loyalty programs to boost retention.",
+      "Consider tiered or value-based pricing models.",
+      "Invest in unique product features for differentiation."
     ],
     "visualizations": [
       {
-        "description": "Pie chart illustrating customer segments (large institutions, small businesses, individuals).",
-        "code": "import matplotlib.pyplot as plt\n\nsegments = ['Large Institutions', 'Small Businesses', 'Individuals']\nsizes = [40, 35, 25]\nplt.pie(sizes, labels=segments, autopct='%1.1f%%')\nplt.title('FinTech Buyer Segmentation')\nplt.show()"
+        "description": "Buyer Power Metrics",
+        "type": "pie",
+        "data": {
+          "labels": [
+            "Customer Concentration",
+            "Lead Score",
+            "Market Growth",
+            "CAC Range",
+            "Average CAC"
+          ],
+          "values": [
+            6,
+            8,
+            12.5,
+            25,
+            50
+          ]
+        }
       }
     ]
   },
   "Supplier_Power": {
     "insights": [
-      "Supplier power is high due to concentrated providers like AWS, Azure, and Stripe.",
-      "Switching costs are high for cloud services and payment processors.",
-      "Specialized technologies (e.g., AI for fraud detection) limit substitute availability."
+      "Significant supplier power due to high concentration and switching costs.",
+      "Key suppliers include AWS, Azure, Google Cloud, Stripe, and PayPal.",
+      "Specialized technologies like AI for fraud detection enhance supplier power.",
+      "High switching costs for cloud services and payment systems."
     ],
     "recommendations": [
-      "Diversify suppliers to reduce dependency on single providers.",
-      "Invest in in-house development for critical technologies.",
+      "Diversify suppliers to reduce dependency.",
+      "Invest in in-house development capabilities.",
       "Negotiate long-term contracts with favorable terms."
     ],
     "visualizations": [
       {
-        "description": "Stacked bar chart showing supplier concentration across cloud services and payment processors.",
-        "code": "import matplotlib.pyplot as plt\n\ncloud = [60, 30, 10]\npayment = [50, 30, 20]\nlabels = ['AWS/Azure', 'Stripe/PayPal', 'Others']\n\nplt.bar(labels, cloud, label='Cloud Services')\nplt.bar(labels, payment, bottom=cloud, label='Payment Processors')\nplt.title('Supplier Concentration in FinTech')\nplt.legend()\nplt.show()"
+        "description": "Supplier Concentration and Examples",
+        "type": "stackedBar",
+        "data": {
+          "labels": [
+            "Cloud Services",
+            "Payment Processors"
+          ],
+          "values": [
+            3,
+            2
+          ]
+        }
       }
     ]
   },
   "Threat_of_New_Entrants": {
     "insights": [
-      "Threat of new entrants is moderately high (7/10) due to regulatory and capital barriers.",
-      "New entrants include agile startups (1-3 years), traditional banks (3-5 years), and tech giants (2-4 years).",
-      "Regulatory compliance costs and brand loyalty of incumbents act as barriers."
+      "Moderate to high threat of new entrants with an Entry Threat Score of 7/10.",
+      "Regulatory complexities score of 7/10.",
+      "Capital requirements score of 6/10.",
+      "Incumbent advantages score of 8/10."
     ],
     "recommendations": [
-      "Engage in regulatory advocacy to maintain compliance advantages.",
-      "Acquire promising startups preemptively.",
-      "Strengthen brand recognition and customer relationships."
+      "Engage in regulatory advocacy.",
+      "Execute preemptive acquisitions of promising startups.",
+      "Implement customer loyalty programs.",
+      "Foster strategic partnerships for innovation."
     ],
     "visualizations": [
       {
-        "description": "Timeline visualization of projected entry timelines for different entrant types.",
-        "code": "import matplotlib.pyplot as plt\n\nentrants = ['Startups', 'Traditional Banks', 'Tech Giants']\ntimelines = [3, 4, 3]\nplt.plot(entrants, timelines, marker='o', color='red')\nplt.title('Projected Entry Timelines (Years)')\nplt.ylabel('Years to Market Entry')\nplt.show()"
+        "description": "Threat of New Entrants Metrics",
+        "type": "multiLine",
+        "data": {
+          "labels": [
+            "Entry Threat Score",
+            "Regulatory Complexities",
+            "Capital Requirements",
+            "Incumbent Advantages"
+          ],
+          "values": [
+            7,
+            7,
+            6,
+            8
+          ]
+        }
       }
     ]
   },
   "Threat_of_Substitute_Products": {
     "insights": [
-      "Substitute threat is high (7/10) due to open-source MLOps tools and low-code platforms.",
-      "Open-source solutions offer comparable functionality at lower costs, with rapid feature parity.",
-      "Economic downturns and data privacy regulations accelerate substitution trends."
+      "High threat of substitute products with a Substitution Threat Score of 7/10.",
+      "Open-source MLOps tools and low-code platforms offer comparable functionality at lower costs.",
+      "Rapid adoption of open-source tools expected between 2023-2025.",
+      "Growing preference for no-code/low-code solutions among SMBs."
     ],
     "recommendations": [
-      "Enhance compatibility with open-source tools and develop low-code capabilities.",
-      "Offer tiered pricing models to compete with cost-effective substitutes.",
-      "Engage with open-source communities to stay ahead of feature parity."
+      "Enhance compatibility with open-source tools.",
+      "Develop low-code capabilities.",
+      "Offer tiered pricing models.",
+      "Form strategic partnerships with cloud providers."
     ],
     "visualizations": [
       {
-        "description": "Line chart showing the growth of open-source MLOps tools vs. proprietary solutions.",
-        "code": "import matplotlib.pyplot as plt\n\nyears = [2023, 2024, 2025]\nopen_source = [40, 60, 80]\nproprietary = [60, 50, 40]\nplt.plot(years, open_source, label='Open-Source')\nplt.plot(years, proprietary, label='Proprietary')\nplt.title('MLOps Tool Adoption Growth')\nplt.xlabel('Year')\nplt.ylabel('Adoption Rate (%)')\nplt.legend()\nplt.show()"
+        "description": "Substitution Threat Metrics",
+        "type": "line",
+        "data": {
+          "labels": [
+            "Substitution Threat Score",
+            "Open-source Adoption",
+            "Low-code Preference"
+          ],
+          "values": [
+            7,
+            2023,
+            2025
+          ]
+        }
       }
     ]
   },
-  "overall_summary": {
-    "key_findings": [
-      "FinTech faces intense rivalry, moderate buyer power, and high supplier power.",
-      "New entrants and substitutes pose significant threats due to regulatory, capital, and cost dynamics.",
-      "Strategic differentiation, partnerships, and innovation are critical for competitive advantage."
-    ]
-  }
+  "overall_summary": {}
 }
